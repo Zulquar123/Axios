@@ -1,17 +1,19 @@
-import axios from "axios";
+import axios from "./Axios";
 import { useState } from "react";
 
-
 export default function Show() {
-    const [data, setData] = useState([]);
-    const getData = () => {
-        const API = "https://fakestoreapi.com/products";
-        axios.get(API).then((products) => {
-            setData(products.data);
-            console.log(products.data);
-        }).catch(err => console.log(err));
-    }
-    
+  const [data, setData] = useState([]);
+  const getData = () => {
+    const API = "/products";
+    axios
+      .get(API)
+      .then((products) => {
+        setData(products.data);
+        console.log(products.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="flex flex-col">
       <div>

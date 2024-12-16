@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from "./Axios";
 import { useEffect, useState } from "react";
-
 
 export default function Services() {
   const [data, setData] = useState([]);
   const getData = () => {
-    const API = "https://fakestoreapi.com/products";
+    const API = "/products";
     axios
       .get(API)
       .then((products) => {
@@ -13,18 +12,16 @@ export default function Services() {
         console.log(products.data);
       })
       .catch((err) => console.log(err));
-    };
-    
-    useEffect(() => {
-        getData();
-    }, []);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="flex flex-col">
       <div>
-        <button
-          className="px-2 py-1 bg-sky-500 hover:bg-sky-700  mx-10 rounded-md text-white"
-        >
+        <button className="px-2 py-1 bg-sky-500 hover:bg-sky-700  mx-10 rounded-md text-white">
           Call API Data Automatically
         </button>
       </div>
